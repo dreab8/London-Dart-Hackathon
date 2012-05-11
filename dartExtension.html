@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>dartExtension</title>
+  </head>
+  <body>
+  <script type="text/javascript">
+	function callbackForJsonpApi(data) {
+	  console.log("log.....");
+	  dartCallback(JSON.stringify(data));
+	  
+	}
+	</script>
+    <h1>dartExtension</h1>
+    <div id=jsondiv">
+    <script type="application/dart" src="dartExtension.dart"></script>
+    <script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+  </body>
+</html>
