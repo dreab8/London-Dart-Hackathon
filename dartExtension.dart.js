@@ -2725,8 +2725,18 @@ Request.prototype.getJson = function() {
   return this.json;
 }
 function callFromJavascript(name) {
+  if (name.toUpperCase() == "home") {
+    return "darlang.org , dartlang.org";
+  }
+  else if (name.toUpperCase() == "spec") {
+    return "language specification , www.dartlang.org/docs/spec/latest/dart-language-specification.html";
+  }
   var p = new Parser();
-  return p.getUrlsSratingWith(name);
+  var results = p.getUrlsSratingWith(name);
+  if (results.get$length() == (0) && name.length > (2)) {
+    return ("dartlang.org : , 'http://www.dartlang.org/search.html?&q=" + name + "',");
+  }
+  return results;
 }
 function main() {
   var p = new Parser();

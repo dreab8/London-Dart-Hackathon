@@ -142,7 +142,11 @@ callFromJavascript(String name){
     return "language specification , www.dartlang.org/docs/spec/latest/dart-language-specification.html";
   }
   Parser p = new Parser();
-  return p.getUrlsSratingWith(name);
+  List results = p.getUrlsSratingWith(name);
+  if(results.length == 0 && name.length > 2){
+    return "dartlang.org : , 'http://www.dartlang.org/search.html?&q=${name}',";
+  }
+  return results;
   
 }
 
