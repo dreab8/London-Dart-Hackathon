@@ -8,14 +8,17 @@
 #source('Parser.dart');
 
 callFromJavascript(String name){
+  List results = new List();
   if(name.toLowerCase() == "home"){
-    return "darlang.org , dartlang.org";
+    results.add("darlang.org , dartlang.org");
+    return results ;
   }else if (name.toLowerCase() == "spec"){
-    return "language specification , www.dartlang.org/docs/spec/latest/dart-language-specification.html";
+    results.add("language specification , www.dartlang.org/docs/spec/latest/dart-language-specification.html");
+    return results;
   }
   
   Parser p = new Parser();
-  List results = p.getUrlsStartingWith(name);
+  results = p.getUrlsStartingWith(name);
   if(results.length == 0 && name.length > 2){
     return "dartlang.org : , 'http://www.dartlang.org/search.html?&q=${name}',";
   }

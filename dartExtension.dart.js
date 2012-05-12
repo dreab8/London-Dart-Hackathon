@@ -2602,14 +2602,17 @@ Parser.prototype._parseStartWith = function(name) {
   return results;
 }
 function callFromJavascript(name) {
+  var results = new Array();
   if (name.toLowerCase() == "home") {
-    return "darlang.org , dartlang.org";
+    results.add("darlang.org , dartlang.org");
+    return results;
   }
   else if (name.toLowerCase() == "spec") {
-    return "language specification , www.dartlang.org/docs/spec/latest/dart-language-specification.html";
+    results.add("language specification , www.dartlang.org/docs/spec/latest/dart-language-specification.html");
+    return results;
   }
   var p = new Parser();
-  var results = p.getUrlsStartingWith(name);
+  results = p.getUrlsStartingWith(name);
   if (results.get$length() == (0) && name.length > (2)) {
     return ("dartlang.org : , 'http://www.dartlang.org/search.html?&q=" + name + "',");
   }
