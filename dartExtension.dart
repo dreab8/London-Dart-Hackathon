@@ -10,17 +10,17 @@
 callFromJavascript(String name){
   List results = new List();
   if(name.toLowerCase() == "home"){
-    results.add("darlang.org , dartlang.org");
+    results.add("darlang.org , http://www.dartlang.org/");
     return results ;
   }else if (name.toLowerCase() == "spec"){
-    results.add("language specification , www.dartlang.org/docs/spec/latest/dart-language-specification.html");
+    results.add("language specification , http://www.dartlang.org/docs/spec/latest/dart-language-specification.html");
     return results;
   }
   
   Parser p = new Parser();
   results = p.getUrlsStartingWith(name);
   if(results.length == 0 && name.length > 2){
-    results.add("dartlang.org : , 'http://www.dartlang.org/search.html?&q=${name}',");
+    results.add("dartlang.org : , http://www.dartlang.org/search.html?&q=${name}");
     return results;
   }
   return results;
