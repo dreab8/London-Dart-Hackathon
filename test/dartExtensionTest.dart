@@ -36,23 +36,23 @@ void main() {
   
   group('dartStringStarWithExploratoryTests',(){
     
-    test('shouldBeTrueAssertioErrorStringStartWithA',(){
-      String className = "a";
-      String result = "AssertionError";
-      Expect.isTrue(result.toUpperCase().startsWith(className.toUpperCase()));
-    });
-    
-    test('shouldBeTrueAssertioErrorStringStartWithAs',(){
-      String className = "as";
-      String result = "AssertionError";
-      Expect.isTrue(result.toUpperCase().startsWith(className.toUpperCase()));
-    });
-    
-    test('shouldbeFalseAssertioErrorStringStartWithx',(){
-      String className = "x";
-      String result = "AssertionError";
-      Expect.isFalse(result.toUpperCase().startsWith(className.toUpperCase()));
-    });
+//    test('shouldBeTrueAssertioErrorStringStartWithA',(){
+//      String className = "a";
+//      String result = "AssertionError";
+//      Expect.isTrue(result.toUpperCase().startsWith(className.toUpperCase()));
+//    });
+//    
+//    test('shouldBeTrueAssertioErrorStringStartWithAs',(){
+//      String className = "as";
+//      String result = "AssertionError";
+//      Expect.isTrue(result.toUpperCase().startsWith(className.toUpperCase()));
+//    });
+//    
+//    test('shouldbeFalseAssertioErrorStringStartWithx',(){
+//      String className = "x";
+//      String result = "AssertionError";
+//      Expect.isFalse(result.toUpperCase().startsWith(className.toUpperCase()));
+//    });
     
   });
 }
