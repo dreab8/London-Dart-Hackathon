@@ -47,7 +47,6 @@ class Parser {
     Completer resultComplete = new Completer();
     var packagesKeys = parsedJson.getKeys();
     
-    
     packagesKeys.forEach((k){
       
       var packageValues = parsedJson[k];
@@ -94,12 +93,20 @@ dartCallback(String data) {
 //  Element div = document.query("#jsondiv");
 }
 
+callFromJavascript(String name){
+  Parser p = new Parser();
+  return p.geturl(name);
+  
+}
+
 void main() {
   Parser p = new Parser();
   p.geturl("");
   // this pulls in the function to ensure
   // it's compiled into the resulting JavaScript
 //  var f = dartCallback;
+  
+  var t = callFromJavascript;
   
 //  Element script = new Element.tag("script");
 //  script.src = "http://api.dartlang.org/nav.json?&callback=callbackForJsonpApi";

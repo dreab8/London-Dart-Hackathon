@@ -2688,9 +2688,14 @@ function Request() {
 Request.prototype.getJson = function() {
   return this.json;
 }
+function callFromJavascript(name) {
+  var p = new Parser();
+  return p.geturl(name);
+}
 function main() {
   var p = new Parser();
   p.geturl("");
+  var t = callFromJavascript;
 }
 (function(){
   var v0/*CharacterData*/ = 'CharacterData|Comment|Text|CDATASection';
