@@ -16,19 +16,19 @@ void main() {
       var className = "AssertionError";
       var kind = "class";
       var url = "http://api.dartlang.org/dart_core/AssertionError.html";
-      List<String> result = parser.getUrlsSratingWith( className);
+      List<String> result = parser.getUrlsStartingWith( className);
       Expect.equals("${kind} ${className} , ${url}", result[0]);
     });
     
     test('ShouldReturnAnEmptyListForNotMatchingSearch',(){
       var className = "yrer";
-      List result = parser.getUrlsSratingWith(className);
+      List result = parser.getUrlsStartingWith(className);
       Expect.equals(0,result.length);
     });
     
     test('ShouldReturnALotOfResults',(){
       var className = "A";
-      List result = parser.getUrlsSratingWith(className);
+      List result = parser.getUrlsStartingWith(className);
       Expect.equals(31,result.length);
     });
     

@@ -15,7 +15,7 @@ callFromJavascript(String name){
   }
   
   Parser p = new Parser();
-  List results = p.getUrlsSratingWith(name);
+  List results = p.getUrlsStartingWith(name);
   if(results.length == 0 && name.length > 2){
     return "dartlang.org : , 'http://www.dartlang.org/search.html?&q=${name}',";
   }
