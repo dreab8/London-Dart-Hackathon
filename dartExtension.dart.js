@@ -2602,10 +2602,10 @@ Parser.prototype._parseStartWith = function(name) {
   return results;
 }
 function callFromJavascript(name) {
-  if (name.toUpperCase() == "home") {
+  if (name.toLowerCase() == "home") {
     return "darlang.org , dartlang.org";
   }
-  else if (name.toUpperCase() == "spec") {
+  else if (name.toLowerCase() == "spec") {
     return "language specification , www.dartlang.org/docs/spec/latest/dart-language-specification.html";
   }
   var p = new Parser();
