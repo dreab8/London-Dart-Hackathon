@@ -12,23 +12,46 @@ void main() {
   
   group('parser',(){
     
-   test('shoouldParseTheCorrectResultForTheAssertionErrorClass',(){
-      var className = "AssertionError";
-      d.Result result = parser.parse(className);
-      Expect.equals(className,result.name); 
-      
-    }); 
-   
     test('shoultReturnCorrectTheUrlList',(){
       var className = "AssertionError";
-      List result = parser.geturl(className);
-      Expect.equals(className,result[0]);
+      var kind = "class";
+      List result = parser.geturl( className);
+      Expect.equals(kind + " " + className,result[0]);
     });
     
-    test('ShouldReturAnEmptyList',(){
+    test('ShouldReturnAnEmptyList',(){
       var className = "";
       List result = parser.geturl(className);
       Expect.equals(0,result.length);
     });
+    
+    test('ShouldReturnALotOfResults',(){
+      var className = "A";
+      List result = parser.getUrlsSratingWith(className);
+      Expect.equals(31,result.length);
+    });
+    
+  });
+  
+  group('dartStringStarWithExploratoryTests',(){
+    
+    test('shouldBeTrueAssertioErrorStringStartWithA',(){
+      String className = "a";
+      String result = "AssertionError";
+      Expect.isTrue(result.toUpperCase().startsWith(className.toUpperCase()));
+    });
+    
+    test('shouldBeTrueAssertioErrorStringStartWithAs',(){
+      String className = "as";
+      String result = "AssertionError";
+      Expect.isTrue(result.toUpperCase().startsWith(className.toUpperCase()));
+    });
+    
+    test('shouldbeFalseAssertioErrorStringStartWithx',(){
+      String className = "x";
+      String result = "AssertionError";
+      Expect.isFalse(result.toUpperCase().startsWith(className.toUpperCase()));
+    });
+    
   });
 }

@@ -5,9 +5,21 @@
 class Result {
   
   String name;
+  String kind;
   String url;
   
-  Result(this.name,this.url);
+  Result(this.name,this.kind,this.url);
+  
+  List asList(){
+    List l = new List();
+    l.add(kind + " " + name);
+    l.add(url);
+    return l;
+  }
+  
+  String toString(){
+    return "${this.kind} ${this.name} , ${this.url}";
+  }
   
 }
 
@@ -23,17 +35,28 @@ class Parser {
   }
   
   List geturl(String name){
-    Result r = parse(name);
+    Result r = _parse(name);
     
     List l = new List();
     if(r != null){
-      l.add(r.name);
-      l.add(r.url);
+      l = r.asList();
     }
     return l;
   }
   
-  Result parse(String name){
+  List getUrlsSratingWith(String name){
+    List<Result> r = _parseStartWith(name);
+    
+    List<String> url = new List();
+   
+    r.forEach((result){
+      url.add(result.toString());
+    });
+    
+    return url;
+  }
+  
+  Result _parse(String name){
     Result foundResult= null;
     Future<Result> result = _parseFuture(name);
     result.then((resultValue){
@@ -54,12 +77,32 @@ class Parser {
       packageValues.forEach((v){
         
         if(v["name"].toUpperCase() == name.toUpperCase()){
-          Result result = new Result(v["name"],baseUrl + v["url"]);
+          Result result = new Result(v["name"],v["kind"],baseUrl + v["url"]);
           resultComplete.complete(result);
         }
       });
     });
     return resultComplete.future;
+  }
+  
+  List<Result> _parseStartWith(String name){
+    Map<String, Object> parsedJson = JSON.parse(json);
+    List<Result> results = new List<Result>();
+    
+    var packagesKeys = parsedJson.getKeys();
+    packagesKeys.forEach((k){
+      
+      var packageValues = parsedJson[k];
+      
+      packageValues.forEach((v){
+        
+        if(v["name"].toUpperCase().startsWith(name.toUpperCase())){
+          Result result = new Result(v["name"],v["kind"],baseUrl + v["url"]);
+          results.add(result);
+        }
+      });
+    });
+    return results;
   }
 }
 
@@ -95,7 +138,7 @@ dartCallback(String data) {
 
 callFromJavascript(String name){
   Parser p = new Parser();
-  return p.geturl(name);
+  return p.getUrlsSratingWith(name);
   
 }
 
