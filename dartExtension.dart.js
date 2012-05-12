@@ -2614,7 +2614,8 @@ function callFromJavascript(name) {
   var p = new Parser();
   results = p.getUrlsStartingWith(name);
   if (results.get$length() == (0) && name.length > (2)) {
-    return ("dartlang.org : , 'http://www.dartlang.org/search.html?&q=" + name + "',");
+    results.add(("dartlang.org : , 'http://www.dartlang.org/search.html?&q=" + name + "',"));
+    return results;
   }
   return results;
 }
