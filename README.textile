@@ -1,0 +1,28 @@
+h1. This is the dart code part used by the chrome extention you can find in the Luigi Agosti repository:
+
+https://github.com/luigi-agosti/dart-search-extension 
+
+The aim of the extention is to help dart developers in the discovery of the api.
+
+h2. How to install it?
+
+Get chrome ... and go here
+
+https://chrome.google.com/webstore/detail/ljbllmhhafojalkffppoempkbhdocgdg
+
+
+h2. How to use it?
+
+In the search bar type "dart" and then press space. After that as you type you will see the suggestions filled with stuff from the Dart api reference.
+
+h2. Important notes and Thanks
+
+This has been developed on the idea of Roman Nurik extension "Android SDK Reference Search".
+
+https://chrome.google.com/webstore/detail/hgcbffeicehlpmgmnhnkjbjoldkfhoin?utm_source=chrome-ntp-icon
+
+All the code has been developed and tested during the London Dart Hackathon 2012.
+
+The general idea was to use as much as possible dart code for the extension and use javascript only for the interface layer to chrome.
+
+We are happy to receive feedback, changes or see the code used for other open source projects.

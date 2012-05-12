@@ -5,20 +5,25 @@ class Parser {
   String json;
   
   Parser(){
-    Request r = new Request();
-    json = r.getJson();
+    
   }
   
-  List<String> getUrlsStartingWith(String name){
-    List<Result> r = _parseStartWith(name);
-    
-    List<String> url = new List();
-   
-    r.forEach((result){
-      url.add(result.toString());
+  Future<List<String>> getUrlsStartingWith(String name){
+    Request req = new Request();
+    Completer resultComplete = new Completer();
+    Future<String> future = req.makeRequest();
+    future.then((jsonfuture){
+      json = jsonfuture;
+      List<Result> r = _parseStartWith(name);
+      
+      List<String> url = new List();
+      
+      r.forEach((result){
+        url.add(result.toString());
+      });
+      resultComplete.complete(url);
     });
-    
-    return url;
+    return resultComplete.future;
   }
    
   List<Result> _parseStartWith(String name){
