@@ -15,13 +15,14 @@ void main() {
     test('shoultReturnCorrectTheUrlList',(){
       var className = "AssertionError";
       var kind = "class";
-      List result = parser.geturl( className);
-      Expect.equals(kind + " " + className,result[0]);
+      var url = "http://api.dartlang.org/dart_core/AssertionError.html";
+      List<String> result = parser.getUrlsSratingWith( className);
+      Expect.equals("${kind} ${className} , ${url}", result[0]);
     });
     
-    test('ShouldReturnAnEmptyList',(){
-      var className = "";
-      List result = parser.geturl(className);
+    test('ShouldReturnAnEmptyListForNotMatchingSearch',(){
+      var className = "yrer";
+      List result = parser.getUrlsSratingWith(className);
       Expect.equals(0,result.length);
     });
     
